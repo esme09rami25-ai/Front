@@ -1,0 +1,227 @@
+/* ==========================================
+   ESTILO CAFETERÍA ARTESANAL ☕🥐
+   ========================================== */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+  --café-bg: #19100c;            /* Fondo oscuro profundo de grano de café */
+  --café-card: #271a14;          /* Tono madera/moka para contenedores */
+  --café-card-hover: #33221b;    /* Tono al pasar el cursor */
+  --café-accent: #e5b299;        /* Color crema / espuma de café */
+  --café-accent-hover: #f2cbb4;  /* Acento más claro */
+  --café-text: #fbf5f0;          /* Texto principal suave */
+  --café-muted: #c4a493;         /* Texto secundario cálido */
+  --café-border: #442f24;        /* Bordes tostados */
+  --café-danger: #d9534f;        /* Rojo cálido para alertas/eliminar */
+  --café-success: #5cb85c;       /* Verde natural */
+}
+
+body {
+  background-color: var(--café-bg);
+  color: var(--café-text);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-image: radial-gradient(circle at 50% 0%, #2f1e16 0%, var(--café-bg) 80%);
+}
+
+.container {
+  max-width: 960px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+/* Título Principal con Tipografía de Cafetería */
+h1 {
+  font-family: 'Playfair Display', serif;
+  text-align: center;
+  font-size: 2.6rem;
+  margin-bottom: 35px;
+  color: var(--café-accent);
+  letter-spacing: 0.5px;
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+h1::before {
+  content: '☕ ';
+}
+
+/* Tarjetas (Cards) estilo barra de café */
+.card {
+  background: var(--café-card);
+  border: 1px solid var(--café-border);
+  border-radius: 16px;
+  padding: 28px;
+  margin-bottom: 30px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.card:hover {
+  background: var(--café-card-hover);
+}
+
+.card h2 {
+  font-family: 'Playfair Display', serif;
+  margin-top: 0;
+  font-size: 1.5rem;
+  color: var(--café-accent);
+  border-bottom: 1px solid var(--café-border);
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+}
+
+/* Formularios y Campos */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 18px;
+  align-items: end;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-size: 0.8rem;
+  color: var(--café-muted);
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+input, select {
+  background-color: #120b08;
+  border: 1px solid var(--café-border);
+  color: var(--café-text);
+  padding: 12px 14px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+input:focus, select:focus {
+  border-color: var(--café-accent);
+  box-shadow: 0 0 0 3px rgba(229, 178, 153, 0.15);
+}
+
+/* Botón de Acción Principal */
+.btn-primary {
+  background-color: var(--café-accent);
+  color: var(--café-bg);
+  font-weight: 700;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(229, 178, 153, 0.2);
+}
+
+.btn-primary:hover {
+  background-color: var(--café-accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(229, 178, 153, 0.3);
+}
+
+/* Tablas Estilizadas */
+.table-responsive {
+  overflow-x: auto;
+  border-radius: 12px;
+  border: 1px solid var(--café-border);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--café-card);
+}
+
+th, td {
+  padding: 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--café-border);
+}
+
+th {
+  background-color: #1d120d;
+  color: var(--café-accent);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+tr:hover td {
+  background-color: rgba(229, 178, 153, 0.03);
+}
+
+/* Botón Eliminar */
+.btn-delete {
+  background: transparent;
+  color: #e57373;
+  border: 1px solid #e57373;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.btn-delete:hover {
+  background-color: var(--café-danger);
+  color: #fff;
+  border-color: var(--café-danger);
+  transform: scale(1.05);
+}
+
+/* ==========================================
+   ANIMACIÓN SUAVE PARA ALERTAS Y TOASTS
+   ========================================== */
+@keyframes cafeSlideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.alert, .toast {
+  background-color: var(--café-card);
+  border: 1px solid var(--café-border);
+  border-left: 6px solid var(--café-accent);
+  color: var(--café-text);
+  padding: 16px 20px;
+  border-radius: 12px;
+  margin-bottom: 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  animation: cafeSlideDown 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 500;
+}
+
+.alert-success {
+  border-left-color: var(--café-success);
+}
+
+.alert-danger {
+  border-left-color: var(--café-danger);
+}
